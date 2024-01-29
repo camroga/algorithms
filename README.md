@@ -1,5 +1,5 @@
-# algorithms_2023
+# algorithms
  
 Camilo Andrés Rodríguez Garzón
 
-Algorithm 2023 is a list of challenges whose purpose is to refresh your programming foundations.
+The algorithm is a list of challenges whose purpose is to refresh your programming foundations.
