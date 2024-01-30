@@ -5,7 +5,7 @@ package binary_search_trees
 // the insert, contains, and remove methods.
 // Feel free to add new properties and methods
 // to the class.
-open class BSTA(value: Int) {
+private class BSTA(value: Int) {
     var value = value
     var left: BSTA? = null
     var right: BSTA? = null

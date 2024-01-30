@@ -9,9 +9,8 @@ fun main(args: Array<String>) {
 //    print(moveElementToEnd(mutableListOf(), 2))
 //    print(transposeMatrix(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
 //    print(transposeMatrixOptimized(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
-//    print(twoNumberSum(mutableListOf(3, 5, -4, 8, 11, 1, -1, 6), 10))
 //    print(tournamentWinner(mutableListOf(mutableListOf("HTML", "C#"), mutableListOf("C#", "Python"), mutableListOf("Python", "HTML")), listOf(0, 0, 1)))
-//    print(nonConstructibleChange(mutableListOf(5, 7, 1, 1, 2, 3, 22)))
+
 //    print(isPalindrome("abcdcba"))
 //    print(caesarCipherEncryptor("abc", 52))
 //    print(commonCharacters(mutableListOf("abc", "bcd", "cbaccd")))
@@ -238,18 +237,6 @@ fun twoNumberSumHigh(array: MutableList<Int>, targetSum: Int): List<Int> {
     return listOf()
 }
 
-fun twoNumberSum(array: MutableList<Int>, targetSum: Int): List<Int> {
-    val nums = hashSetOf<Int>()
-    (0 until array.size).forEach { index ->
-        val otherNum = targetSum - array[index]
-        if (nums.contains(otherNum)) {
-            return listOf(otherNum, array[index])
-        }
-        nums.add(array[index])
-    }
-    return listOf()
-}
-
 fun tournamentWinner(competitions: List<List<String>>, results: List<Int>): String {
     val points = hashMapOf<String, Int>()
     competitions.forEachIndexed { i, e ->
@@ -262,18 +249,6 @@ fun tournamentWinner(competitions: List<List<String>>, results: List<Int>): Stri
 
     }
     return points.maxBy { it.value }.key
-}
-
-fun nonConstructibleChange(coins: MutableList<Int>): Int {
-    var currentChangeCreated = 0 // not available minimum amount of change
-    coins.sort()
-    coins.forEach { coin ->
-        if (coin > currentChangeCreated + 1) {
-            return currentChangeCreated + 1
-        }
-        currentChangeCreated += coin
-    }
-    return currentChangeCreated + 1
 }
 
 fun isPalindrome(string: String): Boolean {

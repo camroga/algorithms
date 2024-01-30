@@ -2,12 +2,6 @@ package binary_search_trees
 
 import kotlin.math.abs
 
-open class BST(value: Int) {
-    var value = value
-    var left: BST? = null
-    var right: BST? = null
-}
-
 /*{
 "target": 4501,
 "tree": {
@@ -48,18 +42,18 @@ open class BST(value: Int) {
     }*/
 
 fun main(args: Array<String>) {
-    val root = BST(value = 100).apply {
-        left = BST(value = 5).apply {
+    val root = bst(value = 100).apply {
+        left = bst(value = 5).apply {
 
         }
-        right = BST(value = 502).apply {
-            left = BST(value = 204).apply {
-                left = BST(value = 203)
-                right = BST(value = 205)
+        right = bst(value = 502).apply {
+            left = bst(value = 204).apply {
+                left = bst(value = 203)
+                right = bst(value = 205)
             }
-            right = BST(value = 55000).apply {
-                left = BST(value = 1001).apply {
-                    right = BST(value = 4500)
+            right = bst(value = 55000).apply {
+                left = bst(value = 1001).apply {
+                    right = bst(value = 4500)
                 }
             }
         }
@@ -67,7 +61,7 @@ fun main(args: Array<String>) {
     print(findClosestValueInBst(root, 4501))
 }
 
-fun findClosestValueInBst(tree: BST, target: Int): Int {
+fun findClosestValueInBst(tree: bst, target: Int): Int {
     var res = tree.value
     tree.left?.let {
         val newValue = findClosestValueInBst(it, target)
@@ -98,7 +92,7 @@ fun branchSums(root: BinaryTree): List<Int> {
 
 fun branchSumSeed(tree: BinaryTree, branchList: MutableList<Int>, currentValue: Int) {
     val total = currentValue + tree.value
-    if(tree.left == null && tree.right == null) {
+    if (tree.left == null && tree.right == null) {
         branchList.add(total)
     }
     tree.left?.let { branchSumSeed(it, branchList, total) }
