@@ -5,7 +5,6 @@ fun main(args: Array<String>) {
 //    print(majorityElement(intArrayOf(2, 2, 1, 1, 1, 2, 2)))
 //    print(isValidSubsequence(listOf(5, 1, 22, 25, 6, -1, 8, 10), listOf(1, 6, -1, 10)))
 //    print(sortedSquaredArray(listOf(-2, -1)))
-//    print(smallestDifference(mutableListOf(-1, 5, 10, 20, 28, 3), mutableListOf(26, 134, 135, 15, 17)))
 //    print(moveElementToEnd(mutableListOf(), 2))
 //    print(transposeMatrix(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
 //    print(transposeMatrixOptimized(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
@@ -162,30 +161,6 @@ fun isValidSubsequence(array: List<Int>, sequence: List<Int>): Boolean {
 
 fun sortedSquaredArray(array: List<Int>): List<Int> {
     return array.map { element -> element * element }.sorted()
-}
-
-fun smallestDifference(arrayOne: MutableList<Int>, arrayTwo: MutableList<Int>): List<Int> {
-    var i = 0
-    var j = 0
-    var current = -1
-    var sol = mutableListOf<Int>()
-    arrayOne.sort()
-    arrayTwo.sort()
-    do {
-        val distance = kotlin.math.abs(arrayOne[i] - arrayTwo[j])
-
-        if (current == -1 || current > distance) {
-            current = distance
-            sol = mutableListOf(arrayOne[i], arrayTwo[j])
-        }
-
-        if (arrayOne[i] < arrayTwo[j]) {
-            i++
-        } else {
-            j++
-        }
-    } while (i < arrayOne.size && j < arrayTwo.size)
-    return sol
 }
 
 fun moveElementToEnd(array: MutableList<Int>, toMove: Int): List<Int> {
