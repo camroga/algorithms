@@ -6,7 +6,6 @@ fun main(args: Array<String>) {
 //    print(isValidSubsequence(listOf(5, 1, 22, 25, 6, -1, 8, 10), listOf(1, 6, -1, 10)))
 //    print(sortedSquaredArray(listOf(-2, -1)))
 //    print(moveElementToEnd(mutableListOf(), 2))
-//    print(transposeMatrix(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
 //    print(transposeMatrixOptimized(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
 //    print(tournamentWinner(mutableListOf(mutableListOf("HTML", "C#"), mutableListOf("C#", "Python"), mutableListOf("Python", "HTML")), listOf(0, 0, 1)))
 
@@ -168,16 +167,7 @@ fun moveElementToEnd(array: MutableList<Int>, toMove: Int): List<Int> {
     return array
 }
 
-fun transposeMatrix(matrix: MutableList<MutableList<Int>>): MutableList<MutableList<Int>> {
-    val sol: MutableList<MutableList<Int>> = mutableListOf()
-    for (j in 0 until matrix[0].size) {
-        sol.add(j, mutableListOf())
-        for (i in 0 until matrix.size) {
-            sol[j].add(matrix[i][j])
-        }
-    }
-    return sol
-}
+
 
 fun transposeMatrixOptimized(matrix: MutableList<MutableList<Int>>): MutableList<MutableList<Int>> {
     return (0 until matrix[0].size).map { column ->
