@@ -2,7 +2,7 @@ package arrays
 
 
 fun isMonotonic(array: List<Int>): Boolean {
-    if(array.size < 2) return true
+    if (array.size < 2) return true
     var isMBTNumbs: Boolean? = if (array[1] > array[0]) true else if (array[1] < array[0]) false else null
 
     (1 until array.size - 1).forEach { i ->
@@ -16,6 +16,21 @@ fun isMonotonic(array: List<Int>): Boolean {
             if (isMBTNumbs!! && array[i + 1] < array[i]) {
                 return false
             }
+        }
+    }
+    return true
+}
+
+fun isMonotonic2(array: List<Int>): Boolean {
+    if (array.size <= 2) return true
+    val isIncreasing = array[array.size - 1] > array[0]
+
+    (0 until array.size - 1).forEach { i ->
+        if (!isIncreasing && array[i + 1] > array[i]) {
+            return false
+        }
+        if (isIncreasing && array[i + 1] < array[i]) {
+            return false
         }
     }
     return true
