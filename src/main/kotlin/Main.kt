@@ -8,8 +8,6 @@ fun main(args: Array<String>) {
 //    print(moveElementToEnd(mutableListOf(), 2))
 //    print(transposeMatrixOptimized(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
 //    print(tournamentWinner(mutableListOf(mutableListOf("HTML", "C#"), mutableListOf("C#", "Python"), mutableListOf("Python", "HTML")), listOf(0, 0, 1)))
-
-//    print(isPalindrome("abcdcba"))
 //    print(caesarCipherEncryptor("abc", 52))
 //    print(commonCharacters(mutableListOf("abc", "bcd", "cbaccd")))
 //    print(runLengthEncoding("AAAAAAAAAAAAABBCCCCDD"))
@@ -214,13 +212,6 @@ fun tournamentWinner(competitions: List<List<String>>, results: List<Int>): Stri
 
     }
     return points.maxBy { it.value }.key
-}
-
-fun isPalindrome(string: String): Boolean {
-    val length = string.length
-    return (0 until length / 2).all { index ->
-        string[index] == string[length - index - 1]
-    }
 }
 
 
