@@ -21,7 +21,6 @@ fun main(args: Array<String>) {
 //    print(getNthFib2(3))
 //    print(productSum(listOf(1, 2, listOf(3), 4, 5)))
 //    print(productSum(listOf(5, 2, listOf(7, -1), 3, listOf(6, listOf(-13, 8), 4))))
-    print(bubbleSort(mutableListOf(8, 5, 2, 9, 5, 6, 3)))
 }
 
 fun rotate(nums: IntArray, k: Int): Unit {
@@ -426,18 +425,4 @@ fun specialProductSum2(array: List<*>, level: Int): Int {
             it as Int
         }
     } * level
-}
-
-fun bubbleSort(array: MutableList<Int>): List<Int> {
-    println(array)
-    (0 until array.size).forEach { i ->
-        (i until array.size).forEach { j ->
-            if(array[i] > array[j]) {
-                val temp = array[i]
-                array[i] = array[j]
-                array[j] = temp
-            }
-        }
-    }
-    return array
 }
