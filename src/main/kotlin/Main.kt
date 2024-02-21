@@ -1,6 +1,4 @@
 fun main(args: Array<String>) {
-    val merge_sorted_array = merge_sorted_array()
-//    merge_sorted_array.merge(intArrayOf(-1,0,0,3,3,3,0,0,0), 6, intArrayOf(1,2,2), 3)
 //    println(removeDuplicatesTwice2(intArrayOf(1,1,1,1)))
 //    print(majorityElement(intArrayOf(2, 2, 1, 1, 1, 2, 2)))
 //    print(isValidSubsequence(listOf(5, 1, 22, 25, 6, -1, 8, 10), listOf(1, 6, -1, 10)))
@@ -32,21 +30,6 @@ fun majorityElement(nums: IntArray): Int {
         return 0
     }
     return nums.groupBy { it }.maxBy { it.value.size }?.key ?: 0
-}
-
-
-class merge_sorted_array {
-    fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int): Unit {
-        var count = 0
-        nums1.filter { e -> e == 0 }.forEach { e ->
-            if (count < nums2.size) {
-                val index = nums1.indexOf(e)
-                nums1[index] = nums2[count]
-                count++
-            }
-        }
-        nums1.sort()
-    }
 }
 
 fun removeElement(nums: IntArray, `val`: Int): Int {
