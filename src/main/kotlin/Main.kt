@@ -1,7 +1,6 @@
 fun main(args: Array<String>) {
 //    println(removeDuplicatesTwice2(intArrayOf(1,1,1,1)))
 //    print(majorityElement(intArrayOf(2, 2, 1, 1, 1, 2, 2)))
-//    print(isValidSubsequence(listOf(5, 1, 22, 25, 6, -1, 8, 10), listOf(1, 6, -1, 10)))
 //    print(sortedSquaredArray(listOf(-2, -1)))
 //    print(moveElementToEnd(mutableListOf(), 2))
 //    print(transposeMatrixOptimized(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
@@ -118,24 +117,6 @@ fun removeDuplicatesTwice2(nums: IntArray): Int {
 
 fun IntArray.swap() {
     this.toList()
-}
-
-fun isValidSubsequence(array: List<Int>, sequence: List<Int>): Boolean {
-    if (array.size < sequence.size) {
-        return false
-    }
-    var i = 0
-    var current = sequence.first()
-    array.forEach { elem ->
-        if (elem == current) {
-            i++
-            if (i == sequence.size) {
-                return true
-            }
-            current = sequence[i]
-        }
-    }
-    return i >= sequence.size
 }
 
 fun sortedSquaredArray(array: List<Int>): List<Int> {
