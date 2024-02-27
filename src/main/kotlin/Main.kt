@@ -11,8 +11,6 @@ fun main(args: Array<String>) {
 //    print(generateDocument("abcabc", "aabbccc"))
 //    print(firstNonRepeatingCharacter("abcdaf"))
 //    print(semordnilap(listOf("aaa", "bbbb")))
-//    print(binarySearch(listOf(0, 1, 21, 33, 45, 45, 61, 71, 72, 73), 111))
-//    print(binarySearch2(listOf(1, 5, 23, 111), 5))
 //    print(findThreeLargestNumbers2(listOf(55, 7, 8, 3, 43, 11)))
 //    print(getNthFib(6))
 //    print(getNthFib2(3))
@@ -291,27 +289,6 @@ fun semordnilap(words: List<String>): List<List<String>> {
         }
     }
     return pairs
-}
-
-fun binarySearch(array: List<Int>, target: Int): Int {
-    val index = array.binarySearch(target)
-    return if (index < 0) -1 else index
-}
-
-fun binarySearch2(array: List<Int>, target: Int): Int {
-    var start = 0
-    var end = array.size
-    while (start <= end) {
-        val index: Int = (end + start) / 2
-        if (target > array[index]) {
-            start = index + 1
-        } else if (target < array[index]) {
-            end = index - 1
-        } else {
-            return index
-        }
-    }
-    return -1
 }
 
 fun findThreeLargestNumbers(array: List<Int>): List<Int> {
