@@ -2,7 +2,6 @@ fun main(args: Array<String>) {
 //    println(removeDuplicatesTwice2(intArrayOf(1,1,1,1)))
 //    print(majorityElement(intArrayOf(2, 2, 1, 1, 1, 2, 2)))
 //    print(sortedSquaredArray(listOf(-2, -1)))
-//    print(moveElementToEnd(mutableListOf(), 2))
 //    print(transposeMatrixOptimized(mutableListOf(mutableListOf(1, 2), mutableListOf(3, 4), mutableListOf(5, 6))))
 //    print(tournamentWinner(mutableListOf(mutableListOf("HTML", "C#"), mutableListOf("C#", "Python"), mutableListOf("Python", "HTML")), listOf(0, 0, 1)))
 //    print(caesarCipherEncryptor("abc", 52))
@@ -120,13 +119,6 @@ fun IntArray.swap() {
 fun sortedSquaredArray(array: List<Int>): List<Int> {
     return array.map { element -> element * element }.sorted()
 }
-
-fun moveElementToEnd(array: MutableList<Int>, toMove: Int): List<Int> {
-    array.sortByDescending { it != toMove }
-    return array
-}
-
-
 
 fun transposeMatrixOptimized(matrix: MutableList<MutableList<Int>>): MutableList<MutableList<Int>> {
     return (0 until matrix[0].size).map { column ->
