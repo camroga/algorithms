@@ -153,20 +153,6 @@ fun twoNumberSumHigh(array: MutableList<Int>, targetSum: Int): List<Int> {
     return listOf()
 }
 
-fun tournamentWinner(competitions: List<List<String>>, results: List<Int>): String {
-    val points = hashMapOf<String, Int>()
-    competitions.forEachIndexed { i, e ->
-        val key = if (results[i] == 1) {
-            e[0]
-        } else {
-            e[1]
-        }
-        points[key] = (points[key] ?: 0) + 3
-
-    }
-    return points.maxBy { it.value }.key
-}
-
 
 fun caesarCipherEncryptor(string: String, key: Int): String {
     // Write your code here.
