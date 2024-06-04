@@ -124,7 +124,7 @@ fun main(args: Array<String>) {
     root.remove(5)
 }
 
-/*fun main(args: Array<String>) {
+/*fun kotlin.read.main(args: Array<String>) {
     val root = BSTA(10)
     root.left = BSTA(5)
     root.left!!.left = BSTA(2)
@@ -142,7 +142,7 @@ fun main(args: Array<String>) {
 }*/
 
 /*
-fun main(args: Array<String>) {
+fun kotlin.read.main(args: Array<String>) {
     val root = BSTA(10)
     root.left = BSTA(5)
     root.left!!.left = BSTA(2)
