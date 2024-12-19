@@ -1,6 +1,6 @@
 package binary_tree
 
-import java.util.Stack
+import java.util.*
 
 
 fun invertBinaryTree(tree: BinaryTree) {
@@ -22,7 +22,34 @@ fun invertBinaryTree(tree: BinaryTree) {
     }
 }
 
-fun main(args: Array<String>) {
+/**
+ * Example:
+ * var ti = TreeNode(5)
+ * var v = ti.`val`
+ * Definition for a binary tree node.
+ */
+class TreeNode(var `val`: Int) {
+    var left: TreeNode? = null
+    var right: TreeNode? = null
+}
+
+fun invertTree(root: TreeNode?): TreeNode? {
+    // Invert the tree recursively
+    invertTreeRecursive(root)
+    return root
+}
+
+fun invertTreeRecursive(node: TreeNode?) {
+    // Base case: if the node is null, do nothing
+    if (node == null) return
+    // Swap the left and right children
+    node.left = node.right.also { node.right = node.left }
+    // Recurse on the left and right subtrees
+    invertTreeRecursive(node.left)
+    invertTreeRecursive(node.right)
+}
+
+fun main() {
     val root = BinaryTree(1)
     root.left = BinaryTree(2)
     root.left!!.left = BinaryTree(4)
