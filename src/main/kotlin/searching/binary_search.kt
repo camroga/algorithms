@@ -21,7 +21,25 @@ fun binarySearch2(array: List<Int>, target: Int): Int {
     return -1
 }
 
-fun main(args: Array<String>) {
+fun search(nums: IntArray, target: Int): Int {
+    // Binary Search Algorithm
+    var start = 0
+    var end = nums.size - 1
+
+    while (start <= end) {
+        // Calculate the middle index
+        val mid = start + (end - start) / 2
+
+        when {
+            target < nums[mid] -> end = mid - 1   // Search in the left half
+            target > nums[mid] -> start = mid + 1 // Search in the right half
+            else -> return mid                   // Target found
+        }
+    }
+    return -1 // Target not found
+}
+
+fun main() {
     println(binarySearch(listOf(0, 1, 21, 33, 45, 45, 61, 71, 72, 73), 72))
     println(binarySearch2(listOf(1, 5, 23, 111), 5))
 }
