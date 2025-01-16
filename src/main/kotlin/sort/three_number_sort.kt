@@ -14,6 +14,7 @@ fun threeNumberSort(array: MutableList<Int>, order: List<Int>): List<Int> {
     val swapPositions: Queue<Int> = LinkedList()
     var i = lastIndex
     if (i == -1 || currentOrder != order[0]) return array
+    var n = 0
     while (i < array.size) {
         if (array[i] == order.last()) {
             swapPositions.add(i)
@@ -26,12 +27,61 @@ fun threeNumberSort(array: MutableList<Int>, order: List<Int>): List<Int> {
                 array[i] = temp
             } else i++
         }
+        n++
+        println("$n")
     }
     return array
 }
 
-fun main(args: Array<String>) {
-//    print(threeNumberSort(mutableListOf(0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 1, 2), listOf(1, 2, 0)))
-//    print(threeNumberSort(mutableListOf(6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6), listOf(4, 5, 6)))
-    print(threeNumberSort(mutableListOf(9, 9, 9, 7, 9, 7, 9, 9, 7, 9), listOf(11, 7, 9)))
+fun threeNumberSort2(array: MutableList<Int>, order: List<Int>): List<Int> {
+    if (array.isEmpty() || order.isEmpty()) {
+        return array
+    }
+    val lowPriorityQueue: Queue<Int> = LinkedList()
+    val highPriorityQueue: Queue<Int> = LinkedList()
+    var i = 0
+    var n = 0
+    while (i < array.size) {
+        when (array[i]) {
+            order[2] -> {
+                highPriorityQueue.add(i)
+                i++
+            }
+
+            order[1] -> {
+                val pos = highPriorityQueue.poll()
+                if (pos != null) {
+                    swapPositions(array, pos, i)
+                    lowPriorityQueue.add(pos)
+                } else {
+                    lowPriorityQueue.add(i)
+                    i++
+                }
+            }
+
+            order[0] -> {
+                val pos = lowPriorityQueue.poll()
+                if (pos != null) {
+                    swapPositions(array, pos, i)
+                } else i++
+            }
+        }
+        n++
+        println("$n")
+    }
+    return array
+}
+
+fun swapPositions(array: MutableList<Int>, pos1: Int, pos2: Int) {
+    val temp = array[pos1]
+    array[pos1] = array[pos2]
+    array[pos2] = temp
+}
+
+fun main() {
+    //2 0
+    //1
+    print(threeNumberSort(mutableListOf(0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 1, 2), listOf(1, 2, 0)))
+//    print(threeNumberSort2(mutableListOf(6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6), listOf(4, 5, 6)))
+//    print(threeNumberSort2(mutableListOf(9, 9, 9, 7, 9, 7, 9, 9, 7, 9), listOf(11, 7, 9)))
 }
